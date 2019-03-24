@@ -28,7 +28,7 @@ class analyze_friends(QObject):
 
     # 好友分析
     def do_analyze(self):
-        home_path = os.path.expandvars('%USERPROFILE%')
+        home_path = os.path.expandvars('/tmp')
         out_put_floder = 'wechat_friends'
         out_put_path = os.path.join(home_path, out_put_floder)
         if not os.path.isdir(out_put_path):
@@ -68,7 +68,7 @@ class run_wechat(QObject):
     def on_login_success(self):
         logging.debug('login success')
         # 删除qr图片
-        os.remove(self.qr_pic)
+        #os.remove(self.qr_pic)
         # 发送登录成功信号
         self.login_signal.emit()
         try:
@@ -84,6 +84,8 @@ class run_wechat(QObject):
     @pyqtSlot()
     def on_logout_success(self):
         logging.debug('logout success')
+        # 删除登录态文件
+        os.remove(self.status_storage_file)
         # 发送账号退出信号
         self.logout_signal.emit()
         # 发送进程结束信号
@@ -92,7 +94,7 @@ class run_wechat(QObject):
 
     # 登录微信
     def log_in(self):
-        home_path = os.path.expandvars('%USERPROFILE%')
+        home_path = os.path.expandvars('/tmp')
         self.work_dir = os.path.join(home_path, 'wechat_tools')
         logging.debug('work_dir is ' + self.work_dir)
         self.qr_pic = os.path.join(self.work_dir, 'QR.png')
@@ -257,7 +259,7 @@ class MainWindow(QMainWindow, Ui_wechat_tools):
     # 菜单栏-设置
     def setting_cliked(self):
         print('设置被点击')
-        self.file_store_path_get = QFileDialog.getExistingDirectory(self, '选取文件夹', '/home')
+        self.file_store_path_get = QFileDialog.getExistingDirectory(self, '选取文件夹', '/tmp')
         if self.file_store_path_get:
             self.withdraw_file_store_path = self.file_store_path_get
             # 将设置写入配置文件
@@ -379,10 +381,10 @@ class MainWindow(QMainWindow, Ui_wechat_tools):
     def open_file_folder(self):
         # 在资源管理器中打开
         abs_path = os.path.abspath(self.withdraw_file_store_path)
-        open_dst_cmd = 'explorer.exe ' + abs_path
-        print(open_dst_cmd)
+        #open_dst_cmd = 'open ' + abs_path
+        #print(open_dst_cmd)
         try:
-            subprocess.Popen(open_dst_cmd)
+            subprocess.Popen(["open", abs_path])
             self.ui_show_info('打开撤回文件存放目录成功！')
         except Exception as e:
             logging.error(e)
@@ -391,7 +393,7 @@ class MainWindow(QMainWindow, Ui_wechat_tools):
     # 登录成功处理函数
     def login_ui_set(self):
         # 改变登录按钮显示
-        self.ui.button_login.setText('退出登录')
+        self.ui.button_login.setText('退出')
         # 取消按钮置灰，恢复可用
         self.ui.button_login.setDisabled(False)
         # 显示登录成功信息
@@ -413,7 +415,7 @@ class MainWindow(QMainWindow, Ui_wechat_tools):
         # 置灰其他功能按钮
         self.disable_function_buttons(True)
         # 改变登录按钮显示
-        self.ui.button_login.setText('扫码登录')
+        self.ui.button_login.setText('登录')
         # 清除文本框信息
         self.ui_show_clear()
         # 显示退出信息

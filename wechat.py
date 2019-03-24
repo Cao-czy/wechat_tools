@@ -20,7 +20,7 @@ class single_wechat_id:
     head_img_path = None
     # 登录
     def login(self,status_storage_dir, pic_dir, login_callback, logout_callback):
-        itchat.auto_login(statusStorageDir=status_storage_dir, picDir = pic_dir, loginCallback=login_callback, exitCallback=logout_callback)
+        itchat.auto_login(statusStorageDir=status_storage_dir, picDir = pic_dir, loginCallback=login_callback, exitCallback=logout_callback, hotReload=True)
         itchat.run()
 
     # 注销
@@ -89,11 +89,11 @@ class single_wechat_id:
             sizes.append(male_percent)
             sizes.append(female_percent)
             sizes.append(other_percent)
-            explode = (0, 0.1, 0)  # 0.1表示将fenale那一块凸显出来
+            explode = (0, 0.1, 0)  # 0.1表示将female那一块凸显出来
             plt.pie(sizes, colors=color, explode=explode, labels=labels, autopct='%1.1f%%', shadow=True,
                     startangle=90)  # startangle表示饼图的起始角度
             plt.axis('equal')  # 正圆
-            plt.rcParams['font.sans-serif'] = ['SimHei']  # 字体，不设置中文不显示
+            plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']  # 字体，不设置中文不显示
             plt.title('好友性别分布' + '(共' + str(total) + '人)', fontsize=12)
             sex_analysis_pic = os.path.join(pic_storage_dir, 'sex_analysis.png')
             plt.savefig(sex_analysis_pic)
@@ -107,7 +107,7 @@ class single_wechat_id:
             # 省份柱状图
             plt.bar(data['Province'].value_counts().index, data['Province'].value_counts())  # 选择柱状图，而不是直方图。
             plt.xticks(rotation=90)  # 横坐标旋转90度
-            plt.rcParams['font.sans-serif'] = ['SimHei']
+            plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']
             plt.title('好友地区分布', fontsize=12)
             area_analysis_pic = os.path.join(pic_storage_dir, 'area_analysis.png')
             plt.savefig(area_analysis_pic)
@@ -133,7 +133,7 @@ class single_wechat_id:
             coloring = np.array(Image.open(self.head_img_path))
             my_wordcloud = WordCloud(background_color="white", max_words=2000,
                                      mask=coloring, max_font_size=150, random_state=11, scale=2,
-                                     font_path="C:/Windows/Fonts/simkai.ttf").generate(word_space_split)
+                                     font_path="/System/Library/Fonts/STHeiti Light.ttc").generate(word_space_split)
             image_colors = ImageColorGenerator(coloring)
             plt.imshow(my_wordcloud.recolor(color_func=image_colors))
             plt.imshow(my_wordcloud)
@@ -155,9 +155,9 @@ class single_wechat_id:
 
         # 在资源管理器中打开
         abs_path = os.path.abspath(pic_storage_dir)
-        open_dst_cmd = 'explorer.exe ' + abs_path
+        #open_dst_cmd = 'Finder ' + abs_path
         try:
-            subprocess.Popen(open_dst_cmd)
+            subprocess.Popen(["open", abs_path])
         except Exception as e:
             logging.error(e)
 

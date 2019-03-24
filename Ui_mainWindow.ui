@@ -20,7 +20,7 @@
    <string>WechatTools</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icon/icon.qrc">
+   <iconset>
     <normaloff>:/icon/wechat.png</normaloff>:/icon/wechat.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -28,19 +28,19 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>450</y>
-      <width>631</width>
-      <height>71</height>
+      <y>530</y>
+      <width>621</width>
+      <height>61</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <property name="spacing">
-      <number>40</number>
+      <number>38</number>
      </property>
      <item>
       <widget class="QPushButton" name="button_analyze">
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        <string notr="true">font: 25 11pt &quot;Lantinghei&quot;;</string>
        </property>
        <property name="text">
         <string>微信好友分析</string>
@@ -53,7 +53,7 @@
         <bool>true</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        <string notr="true">font: 25 11pt &quot;Lantinghei&quot;;</string>
        </property>
        <property name="text">
         <string>好友删除检测</string>
@@ -63,7 +63,7 @@
      <item>
       <widget class="QPushButton" name="button_withdraw">
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        <string notr="true">font: 25 11pt &quot;Lantinghei&quot;;</string>
        </property>
        <property name="text">
         <string>开启消息防撤回</string>
@@ -73,7 +73,7 @@
      <item>
       <widget class="QPushButton" name="button_robot">
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;微软雅黑&quot;;</string>
+        <string notr="true">font: 25 11pt &quot;Lantinghei&quot;;</string>
        </property>
        <property name="text">
         <string>开启自动回复机器人</string>
@@ -88,7 +88,7 @@
       <x>20</x>
       <y>70</y>
       <width>761</width>
-      <height>351</height>
+      <height>451</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -139,7 +139,7 @@
         <string notr="true">font: 75 14pt &quot;微软雅黑&quot;;</string>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;Not Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;未登陆&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -148,31 +148,31 @@
    <widget class="QPushButton" name="button_login">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>440</y>
-      <width>100</width>
-      <height>100</height>
+      <x>690</x>
+      <y>530</y>
+      <width>91</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>100</width>
-      <height>100</height>
+      <width>0</width>
+      <height>0</height>
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 12pt &quot;微软雅黑&quot;;</string>
+     <string notr="true">font: 63 13pt &quot;Lantinghei&quot;;</string>
     </property>
     <property name="text">
-     <string>扫码登录</string>
+     <string>登录</string>
     </property>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>360</x>
       <y>10</y>
-      <width>296</width>
+      <width>424</width>
       <height>51</height>
      </rect>
     </property>
@@ -182,6 +182,9 @@
      </property>
      <item>
       <widget class="QPushButton" name="open_file_folder">
+       <property name="styleSheet">
+        <string notr="true">font: 63 13pt &quot;Lantinghei&quot;;</string>
+       </property>
        <property name="text">
         <string>打开撤回文件目录</string>
        </property>
@@ -189,6 +192,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="button_background">
+       <property name="styleSheet">
+        <string notr="true">font: 63 13pt &quot;Lantinghei&quot;;</string>
+       </property>
        <property name="text">
         <string>后台运行</string>
        </property>
@@ -196,6 +202,9 @@
      </item>
      <item>
       <widget class="QPushButton" name="clear_display">
+       <property name="styleSheet">
+        <string notr="true">font: 63 13pt &quot;Lantinghei&quot;;</string>
+       </property>
        <property name="text">
         <string>清除显示</string>
        </property>
@@ -210,7 +219,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -237,27 +246,9 @@
    <addaction name="setting"/>
    <addaction name="menu_3"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <widget class="QToolBar" name="toolBar">
-   <property name="minimumSize">
-    <size>
-     <width>800</width>
-     <height>0</height>
-    </size>
-   </property>
-   <property name="windowTitle">
-    <string>toolBar</string>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
   <action name="file_quit">
    <property name="icon">
-    <iconset resource="icon/icon.qrc">
+    <iconset>
      <normaloff>:/icon/export.png</normaloff>:/icon/export.png</iconset>
    </property>
    <property name="text">
@@ -271,7 +262,7 @@
   </action>
   <action name="help_about">
    <property name="icon">
-    <iconset resource="icon/icon.qrc">
+    <iconset>
      <normaloff>:/icon/fav.png</normaloff>:/icon/fav.png</iconset>
    </property>
    <property name="text">
@@ -280,7 +271,7 @@
   </action>
   <action name="help_guide">
    <property name="icon">
-    <iconset resource="icon/icon.qrc">
+    <iconset>
      <normaloff>:/icon/help.png</normaloff>:/icon/help.png</iconset>
    </property>
    <property name="text">
@@ -294,7 +285,7 @@
   </action>
   <action name="help_contact">
    <property name="icon">
-    <iconset resource="icon/icon.qrc">
+    <iconset>
      <normaloff>:/icon/mail.png</normaloff>:/icon/mail.png</iconset>
    </property>
    <property name="text">
@@ -303,7 +294,7 @@
   </action>
   <action name="setting_file_storage_path">
    <property name="icon">
-    <iconset resource="icon/icon.qrc">
+    <iconset>
      <normaloff>:/icon/settings.png</normaloff>:/icon/settings.png</iconset>
    </property>
    <property name="text">

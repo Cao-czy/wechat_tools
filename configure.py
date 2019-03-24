@@ -6,7 +6,7 @@ class configure():
     config_file_name = 'wechat_tools.ini'
 
     def __init__(self):
-        self.home_path = os.path.expandvars('%USERPROFILE%')
+        self.home_path = os.path.expandvars('/tmp')
         os.chdir(self.home_path)
         self.conf = configparser.ConfigParser()
         try:
